@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TecnoResistencia — Accesorios para Celular</title>
+  <meta name="description" content="Accesorios, cargadores y todo para tu celular. Envío gratis a todo el país." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #060E1F;
+      --navy-mid:    #0D1F3C;
+      --navy-card:   #0B1930;
+      --blue:        #1A6EFF;
+      --blue-bright: #3D8BFF;
+      --blue-glow:   rgba(26,110,255,.45);
+      --sky:         #5BB3FF;
+      --blue-light:  #C8E0FF;
+      --blue-xl:     #EAF3FF;
+      --white:       #FFFFFF;
+      --off-white:   #F0F6FF;
+      --gray-light:  #D0DEF0;
+      --gray-mid:    #6B85A8;
+      --black:       #040A14;
+      --wa:          #25D366;
+      --wa-dark:     #128C7E;
+      --badge-new:   #00C896;
+      --badge-sale:  #FF3D5A;
+      --badge-dest:  #1A6EFF;
+      --radius:      12px;
+      --glow-blue:   0 0 30px rgba(26,110,255,.35), 0 0 60px rgba(26,110,255,.15);
+      --shadow-card: 0 4px 24px rgba(4,10,20,.4);
+      --f-display:   'Orbitron', sans-serif;
+      --f-body:      'Exo 2', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--f-body);
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 99px; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── SCAN LINE TEXTURE (sutil) ─── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,.04) 2px,
+        rgba(0,0,0,.04) 4px
+      );
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(6,14,31,.88);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(26,110,255,.2);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 66px; max-width: 1100px; margin: 0 auto; padding: 0 24px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 40px; width: 40px; object-fit: contain; border-radius: 8px;
+    }
+    .nav-logo-text {
+      font-family: var(--f-display);
+      font-size: .95rem; font-weight: 700;
+      color: var(--white); letter-spacing: .04em; line-height: 1;
+    }
+    .nav-logo-text span { color: var(--blue-bright); }
+
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,.6); text-decoration: none;
+      font-size: .85rem; font-weight: 500; letter-spacing: .03em;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--sky); }
+
+    .nav-wa {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--wa); color: var(--white);
+      padding: 9px 20px; border-radius: 99px;
+      font-weight: 700; font-size: .82rem; letter-spacing: .04em;
+      text-decoration: none; transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 0 16px rgba(37,211,102,.3);
+    }
+    .nav-wa:hover { background: var(--wa-dark); transform: translateY(-1px); box-shadow: 0 0 26px rgba(37,211,102,.45); }
+    .nav-wa svg { width: 15px; height: 15px; fill: currentColor; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding-top: 66px;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(26,110,255,.18) 0%, transparent 70%), var(--navy);
+    }
+
+    /* glow orbs */
+    .hero::before {
+      content: '';
+      position: absolute; left: -200px; top: 20%;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(26,110,255,.12) 0%, transparent 70%);
+    }
+    .hero::after {
+      content: '';
+      position: absolute; right: -150px; bottom: 10%;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(26,110,255,.08) 0%, transparent 70%);
+    }
+
+    /* banner image full-width behind hero content */
+    .hero-banner-wrap {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 900px;
+      margin: 0 auto 0;
+    }
+    .hero-banner-wrap img {
+      width: 100%; border-radius: 20px;
+      box-shadow: var(--glow-blue), 0 20px 60px rgba(4,10,20,.7);
+      border: 1px solid rgba(26,110,255,.25);
+    }
+
+    /* overlay gradient so text below blends */
+    .hero-banner-fade {
+      position: absolute; bottom: -2px; left: 0; right: 0; height: 60%;
+      background: linear-gradient(to bottom, transparent, var(--navy));
+      border-radius: 0 0 20px 20px;
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 0 24px 60px;
+      margin-top: -40px; /* overlap banner bottom */
+    }
+
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(26,110,255,.15);
+      border: 1px solid rgba(26,110,255,.35);
+      color: var(--sky); font-size: .72rem; font-weight: 600;
+      letter-spacing: .16em; text-transform: uppercase;
+      padding: 6px 18px; border-radius: 99px; margin-bottom: 20px;
+      opacity: 0; animation: fadeUp .5s .1s ease forwards;
+    }
+    .hero-tag::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--sky); animation: blink 1.4s ease infinite;
+    }
+
+    .hero-title {
+      font-family: var(--f-display);
+      font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+      font-weight: 900; line-height: 1.08;
+      letter-spacing: .04em;
+      color: var(--white);
+      text-shadow: 0 0 40px rgba(26,110,255,.6);
+      margin-bottom: 18px;
+      opacity: 0; animation: fadeUp .5s .2s ease forwards;
+    }
+    .hero-title .accent { color: var(--blue-bright); }
+
+    .hero-sub {
+      font-size: 1.05rem; font-weight: 300; line-height: 1.65;
+      color: rgba(255,255,255,.58); max-width: 520px; margin: 0 auto 32px;
+      opacity: 0; animation: fadeUp .5s .32s ease forwards;
+    }
+
+    /* FREE SHIPPING BADGE — destacado */
+    .free-ship-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, rgba(0,200,150,.18), rgba(0,200,150,.06));
+      border: 1.5px solid rgba(0,200,150,.5);
+      color: #00E6A8;
+      padding: 10px 24px; border-radius: 99px;
+      font-family: var(--f-display); font-size: .82rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      margin-bottom: 32px;
+      box-shadow: 0 0 20px rgba(0,200,150,.2);
+      opacity: 0; animation: fadeUp .5s .4s ease forwards;
+    }
+    .free-ship-badge .ship-icon { font-size: 1.3rem; }
+
+    .hero-actions {
+      display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
+      opacity: 0; animation: fadeUp .5s .52s ease forwards;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--blue); color: var(--white);
+      padding: 14px 30px; border-radius: 8px;
+      font-family: var(--f-display); font-weight: 700;
+      font-size: .82rem; letter-spacing: .06em; text-decoration: none;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 0 22px rgba(26,110,255,.45);
+    }
+    .btn-primary:hover { background: #0D5AE0; transform: translateY(-2px); box-shadow: 0 0 34px rgba(26,110,255,.65); }
+    .btn-wa-hero {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--wa); color: var(--white);
+      padding: 14px 30px; border-radius: 8px;
+      font-family: var(--f-display); font-weight: 700;
+      font-size: .82rem; letter-spacing: .06em; text-decoration: none;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 0 20px rgba(37,211,102,.35);
+    }
+    .btn-wa-hero:hover { background: var(--wa-dark); transform: translateY(-2px); }
+    .btn-primary svg, .btn-wa-hero svg { width: 17px; height: 17px; fill: currentColor; }
+
+    /* ─── STRIP DE BENEFICIOS ─── */
+    .strip {
+      background: var(--navy-mid);
+      border-top: 1px solid rgba(26,110,255,.18);
+      border-bottom: 1px solid rgba(26,110,255,.18);
+    }
+    .strip-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .strip-item {
+      display: flex; align-items: center; gap: 13px;
+      padding: 24px 20px;
+      border-right: 1px solid rgba(26,110,255,.12);
+    }
+    .strip-item:last-child { border-right: none; }
+    .strip-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(26,110,255,.14); border-radius: 10px;
+      display: grid; place-items: center; font-size: 1.3rem;
+      border: 1px solid rgba(26,110,255,.2);
+    }
+    .strip-text strong {
+      display: block; color: var(--white); font-size: .88rem;
+      font-weight: 600; margin-bottom: 2px; letter-spacing: .02em;
+    }
+    .strip-text span { color: var(--gray-mid); font-size: .75rem; }
+
+    /* ENVÍO GRATIS highlight en el strip */
+    .strip-item.highlight .strip-icon {
+      background: rgba(0,200,150,.15);
+      border-color: rgba(0,200,150,.35);
+      box-shadow: 0 0 14px rgba(0,200,150,.2);
+    }
+    .strip-item.highlight strong { color: #00E6A8; }
+
+    /* ─── CATALOG ─── */
+    .catalog {
+      padding: 80px 0;
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%);
+    }
+
+    .section-tag {
+      display: inline-block; color: var(--blue-bright);
+      font-family: var(--f-display); font-size: .68rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: var(--f-display);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 900; letter-spacing: .04em; line-height: 1.1;
+      color: var(--white); margin-bottom: 10px;
+      text-shadow: 0 0 28px rgba(26,110,255,.4);
+    }
+    .section-sub {
+      font-size: .95rem; color: var(--gray-mid); font-weight: 300;
+      max-width: 480px; line-height: 1.65; margin-bottom: 30px;
+    }
+
+    /* Filter tabs */
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 34px; }
+    .filter-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(26,110,255,.22);
+      color: var(--gray-mid); padding: 8px 18px; border-radius: 99px;
+      font-size: .8rem; font-weight: 500; cursor: pointer;
+      transition: all .2s; font-family: var(--f-body);
+      letter-spacing: .03em;
+    }
+    .filter-btn:hover { border-color: var(--blue); color: var(--sky); }
+    .filter-btn.active {
+      background: var(--blue); border-color: var(--blue);
+      color: var(--white); font-weight: 600;
+      box-shadow: 0 0 14px rgba(26,110,255,.4);
+    }
+    .filter-count {
+      width: 20px; height: 20px; border-radius: 50%;
+      font-size: .68rem; display: grid; place-items: center;
+      background: rgba(255,255,255,.15); color: inherit;
+    }
+    .filter-btn:not(.active) .filter-count { background: rgba(26,110,255,.2); color: var(--sky); }
+
+    /* Product cards */
+    .products-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--navy-card);
+      border-radius: var(--radius);
+      border: 1px solid rgba(26,110,255,.18);
+      box-shadow: var(--shadow-card);
+      display: flex; flex-direction: column;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+      animation: fadeUp .4s ease both;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(26,110,255,.5);
+      box-shadow: var(--shadow-card), 0 0 30px rgba(26,110,255,.2);
+    }
+
+    .card-img {
+      height: 168px;
+      background: linear-gradient(135deg, rgba(26,110,255,.12) 0%, rgba(13,31,60,.8) 100%);
+      position: relative; display: grid; place-items: center;
+      border-bottom: 1px solid rgba(26,110,255,.12);
+    }
+    .card-emoji {
+      font-size: 3.8rem; opacity: .42;
+      transition: transform .3s, opacity .3s;
+    }
+    .card:hover .card-emoji { transform: scale(1.1); opacity: .62; }
+
+    .card-badge {
+      position: absolute; top: 10px; right: 10px;
+      font-family: var(--f-display); font-size: .58rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--white);
+      padding: 4px 11px; border-radius: 99px;
+    }
+    .badge-destacado { background: var(--badge-dest); box-shadow: 0 0 10px rgba(26,110,255,.5); }
+    .badge-nuevo     { background: var(--badge-new);  box-shadow: 0 0 10px rgba(0,200,150,.4); }
+    .badge-oferta    { background: var(--badge-sale);  box-shadow: 0 0 10px rgba(255,61,90,.4); }
+
+    .card-body { padding: 18px 20px; flex: 1; display: flex; flex-direction: column; }
+    .card-sku {
+      font-family: var(--f-display); font-size: .6rem; color: var(--blue-bright);
+      letter-spacing: .14em; text-transform: uppercase; margin-bottom: 6px;
+    }
+    .card-name {
+      font-family: var(--f-display); font-size: .95rem; font-weight: 700;
+      color: var(--white); margin-bottom: 8px; line-height: 1.3;
+      letter-spacing: .02em;
+    }
+    .card-desc {
+      font-size: .86rem; color: var(--gray-mid); line-height: 1.6;
+      flex: 1; margin-bottom: 16px; font-weight: 300;
+    }
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding-top: 14px; border-top: 1px solid rgba(26,110,255,.12);
+    }
+    .card-price {
+      font-family: var(--f-display); font-size: 1.2rem; font-weight: 900;
+      color: var(--sky); letter-spacing: .02em;
+      text-shadow: 0 0 16px rgba(91,179,255,.5);
+    }
+    .card-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--wa); color: var(--white);
+      padding: 8px 15px; border-radius: 7px;
+      font-family: var(--f-display); font-size: .7rem; font-weight: 700;
+      letter-spacing: .06em; text-decoration: none;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 0 10px rgba(37,211,102,.25);
+    }
+    .card-cta:hover { background: var(--wa-dark); transform: translateY(-1px); box-shadow: 0 0 18px rgba(37,211,102,.45); }
+    .card-cta svg { width: 13px; height: 13px; fill: currentColor; }
+
+    /* Loading / Error */
+    #loading-state {
+      display: flex; flex-direction: column; align-items: center;
+      padding: 80px 24px; gap: 18px;
+      color: var(--gray-mid); font-size: .9rem;
+    }
+    .spinner {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 3px solid rgba(26,110,255,.2);
+      border-top-color: var(--blue);
+      animation: spin .7s linear infinite;
+    }
+    #error-state {
+      display: none; flex-direction: column; align-items: center;
+      padding: 80px 24px; gap: 14px; text-align: center;
+    }
+    #error-state .error-icon { font-size: 2.6rem; }
+    #error-state h3 { font-family: var(--f-display); color: var(--white); }
+    #error-state p { color: var(--gray-mid); max-width: 400px; line-height: 1.6; }
+    #error-state code {
+      background: rgba(26,110,255,.1); color: var(--sky);
+      border: 1px solid rgba(26,110,255,.25);
+      padding: 10px 18px; border-radius: 6px; font-size: .82rem;
+      word-break: break-all; max-width: 480px; display: block;
+    }
+    .no-results {
+      grid-column: 1/-1; text-align: center; padding: 60px 20px;
+      color: var(--gray-mid);
+    }
+    .no-results .nr-icon { font-size: 2.8rem; margin-bottom: 12px; }
+    .no-results h3 { font-family: var(--f-display); color: var(--white); margin-bottom: 8px; }
+
+    /* ─── WA SECTION ─── */
+    .wa-section {
+      background: var(--navy);
+      border-top: 1px solid rgba(26,110,255,.15);
+      padding: 90px 0;
+      position: relative; overflow: hidden;
+    }
+    .wa-section::before {
+      content: '';
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(26,110,255,.1) 0%, transparent 70%);
+    }
+    .wa-inner { position: relative; z-index: 1; text-align: center; }
+
+    .wa-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(37,211,102,.12); border: 1px solid rgba(37,211,102,.3);
+      color: var(--wa); font-family: var(--f-display);
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      padding: 7px 18px; border-radius: 99px; margin-bottom: 24px;
+    }
+    .wa-badge::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--wa); animation: blink 1.4s ease infinite;
+    }
+
+    .wa-title {
+      font-family: var(--f-display);
+      font-size: clamp(1.7rem, 4vw, 2.8rem);
+      font-weight: 900; letter-spacing: .04em; color: var(--white);
+      line-height: 1.1; margin-bottom: 14px;
+      text-shadow: 0 0 30px rgba(26,110,255,.5);
+    }
+    .wa-sub {
+      font-size: .96rem; color: var(--gray-mid); font-weight: 300;
+      max-width: 440px; margin: 0 auto 32px; line-height: 1.65;
+    }
+    .wa-number {
+      font-family: var(--f-display); font-size: 1.9rem; font-weight: 900;
+      color: var(--wa); margin-bottom: 28px; letter-spacing: .04em;
+      text-shadow: 0 0 20px rgba(37,211,102,.4);
+    }
+    .wa-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--wa); color: var(--white);
+      padding: 17px 40px; border-radius: 12px;
+      font-family: var(--f-display); font-weight: 700;
+      font-size: .9rem; letter-spacing: .06em; text-decoration: none;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 0 28px rgba(37,211,102,.35); margin-bottom: 18px;
+    }
+    .wa-btn:hover { background: var(--wa-dark); transform: translateY(-3px); box-shadow: 0 0 42px rgba(37,211,102,.5); }
+    .wa-btn svg { width: 22px; height: 22px; fill: currentColor; }
+    .wa-hours { color: rgba(255,255,255,.3); font-size: .8rem; margin-bottom: 42px; letter-spacing: .04em; }
+
+    .wa-chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .wa-chip {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.65); padding: 9px 18px; border-radius: 99px;
+      font-size: .82rem; font-weight: 500;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(26,110,255,.12);
+      padding: 28px 0;
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 14px;
+    }
+    .footer-logo {
+      display: flex; align-items: center; gap: 9px; text-decoration: none;
+    }
+    .footer-logo img { height: 30px; width: 30px; object-fit: contain; border-radius: 6px; }
+    .footer-logo-text {
+      font-family: var(--f-display); font-weight: 700;
+      font-size: .85rem; color: var(--white); letter-spacing: .04em;
+    }
+    .footer-logo-text span { color: var(--blue-bright); }
+    .footer-links { display: flex; gap: 20px; list-style: none; }
+    .footer-links a { color: var(--gray-mid); font-size: .78rem; text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--sky); }
+    .footer-copy { font-size: .76rem; color: var(--gray-mid); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(20px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes blink {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:.4; transform:scale(1.3); }
+    }
+
+    .reveal {
+      opacity:0; transform:translateY(24px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .strip-grid { grid-template-columns: repeat(2,1fr); }
+      .strip-item:nth-child(2) { border-right: none; }
+      .strip-item:nth-child(3) { border-right: 1px solid rgba(26,110,255,.12); }
+    }
+    @media (max-width: 480px) {
+      .strip-grid { grid-template-columns: 1fr; }
+      .strip-item { border-right: none !important; border-bottom: 1px solid rgba(26,110,255,.1); }
+      .products-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="logo-icon.png" alt="TecnoResistencia logo" />
+      <div class="nav-logo-text">TECNO<span>RESISTENCIA</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#catalogo">Productos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#" class="nav-wa" id="nav-wa-btn">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-banner-wrap">
+    <img src="logo-banner.png" alt="TecnoResistencia — Accesorios para celular" />
+    <div class="hero-banner-fade"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-tag">Accesorios · Cargadores · Protección</div>
+    <h1 class="hero-title">TODO PARA<br>TU <span class="accent">CELULAR</span></h1>
+    <p class="hero-sub">Accesorios originales, cargadores, fundas y más. Calidad garantizada al mejor precio.</p>
+
+    <div class="free-ship-badge">
+      <span class="ship-icon">🚀</span>
+      ENVÍO GRATIS A TODO EL PAÍS
+    </div>
+
+    <div class="hero-actions">
+      <a href="#catalogo" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+        VER CATÁLOGO
+      </a>
+      <a href="#" class="btn-wa-hero" id="hero-wa-btn">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        CONSULTAR AHORA
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STRIP ═══ -->
+<div class="strip">
+  <div class="container" style="padding:0 24px">
+    <div class="strip-grid">
+      <div class="strip-item highlight">
+        <div class="strip-icon">🚀</div>
+        <div class="strip-text"><strong>Envío gratis</strong><span>A todo el país, siempre</span></div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-icon">🔒</div>
+        <div class="strip-text"><strong>Pago seguro</strong><span>MercadoPago / transferencia</span></div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-icon">✅</div>
+        <div class="strip-text"><strong>Productos originales</strong><span>Garantía oficial en todo</span></div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-icon">💬</div>
+        <div class="strip-text"><strong>Atención directa</strong><span>Respondemos por WhatsApp</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CATÁLOGO ═══ -->
+<section class="catalog" id="catalogo">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">// productos</span>
+      <h2 class="section-title">CATÁLOGO COMPLETO</h2>
+      <p class="section-sub" id="catalog-sub">Cargando productos...</p>
+    </div>
+
+    <div id="loading-state">
+      <div class="spinner"></div>
+      <span>Cargando catálogo...</span>
+    </div>
+
+    <div id="error-state">
+      <div class="error-icon">⚠️</div>
+      <h3>No se pudo cargar el catálogo</h3>
+      <p id="error-msg">Verificá que el JSON esté disponible y que el servidor permita CORS.</p>
+      <code id="error-url"></code>
+    </div>
+
+    <div class="filter-bar" id="filter-bar" style="display:none"></div>
+    <div class="products-grid" id="products-grid" style="display:none"></div>
+  </div>
+</section>
+
+<!-- ═══ WA CTA ═══ -->
+<section class="wa-section" id="contacto">
+  <div class="container">
+    <div class="wa-inner reveal">
+      <div class="wa-badge">Atención al instante</div>
+      <h2 class="wa-title">¿CONSULTÁS<br>POR UN PRODUCTO?</h2>
+      <p class="wa-sub">Stock, precios, envíos y cuotas. Respondemos de lunes a sábado.</p>
+      <div class="wa-number" id="wa-number">+54 9 ...</div>
+      <a href="#" class="wa-btn" id="wa-btn-main" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        ABRIR WHATSAPP
+      </a>
+      <div class="wa-hours" id="wa-hours">Lun–Sáb 9:00 a 20:00 hs</div>
+      <div class="wa-chips">
+        <div class="wa-chip">🚀 Envío gratis</div>
+        <div class="wa-chip">💳 Cuotas sin interés</div>
+        <div class="wa-chip">✅ Productos originales</div>
+        <div class="wa-chip">📦 Entrega rápida</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a href="#" class="footer-logo">
+        <img src="logo-icon.png" alt="logo" />
+        <div class="footer-logo-text">TECNO<span>RESISTENCIA</span></div>
+      </a>
+      <ul class="footer-links">
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a id="footer-email" href="#">Email</a></li>
+      </ul>
+      <div class="footer-copy" id="footer-copy">© 2025 TecnoResistencia</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ JS ═══ -->
+<script>
+const DEFAULT_JSON_URL = './productos.json';
+
+const WA_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
+
+let allProducts = [], allCategorias = [], waNumero = '';
+
+function waLink(num, txt) {
+  return `https://wa.me/${num}?text=${encodeURIComponent(txt)}`;
+}
+function badgeClass(b) {
+  return { destacado:'badge-destacado', nuevo:'badge-nuevo', oferta:'badge-oferta' }[b] || '';
+}
+function badgeLabel(b) {
+  return { destacado:'DESTACADO', nuevo:'NUEVO', oferta:'OFERTA' }[b] || b.toUpperCase();
+}
+
+function renderProducts(filter) {
+  const grid = document.getElementById('products-grid');
+  const list = filter === 'todos' ? allProducts : allProducts.filter(p => p.categoria === filter);
+  if (!list.length) {
+    grid.innerHTML = `<div class="no-results"><div class="nr-icon">🔍</div><h3>Sin resultados</h3><p>No hay productos en esta categoría.</p></div>`;
+    return;
+  }
+  grid.innerHTML = list.map((p, i) => `
+    <div class="card" style="animation-delay:${i * .06}s">
+      <div class="card-img">
+        ${p.badge ? `<span class="card-badge ${badgeClass(p.badge)}">${badgeLabel(p.badge)}</span>` : ''}
+        <span class="card-emoji">${p.icono || '📦'}</span>
+      </div>
+      <div class="card-body">
+        <div class="card-sku">${p.id}</div>
+        <div class="card-name">${p.nombre}</div>
+        <div class="card-desc">${p.descripcion}</div>
+        <div class="card-footer">
+          <div class="card-price">${p.precio}</div>
+          <a href="${waLink(waNumero, `Hola! Quiero consultar sobre ${p.nombre} (${p.id})`)}"
+             target="_blank" rel="noopener" class="card-cta">
+            ${WA_SVG} Consultar
+          </a>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function renderFilters() {
+  const bar = document.getElementById('filter-bar');
+  const counts = {};
+  allProducts.forEach(p => { counts[p.categoria] = (counts[p.categoria] || 0) + 1; });
+  bar.innerHTML = `<button class="filter-btn active" data-cat="todos">Todos <span class="filter-count">${allProducts.length}</span></button>`
+    + allCategorias.filter(c => counts[c.id]).map(c =>
+      `<button class="filter-btn" data-cat="${c.id}">${c.icono} ${c.nombre} <span class="filter-count">${counts[c.id]}</span></button>`
+    ).join('');
+  bar.addEventListener('click', e => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    bar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderProducts(btn.dataset.cat);
+  });
+}
+
+function populatePage(data) {
+  const t = data.tienda || {};
+  waNumero = t.whatsapp || '';
+  const waUrl = waLink(waNumero, 'Hola! Vi el catálogo de TecnoResistencia y quiero consultar');
+  document.title = (t.nombre || 'TecnoResistencia') + ' — Accesorios para Celular';
+  document.getElementById('nav-wa-btn').href = waUrl;
+  document.getElementById('hero-wa-btn').href = waUrl;
+  document.getElementById('catalog-sub').textContent = t.descripcion || 'Selección de accesorios con garantía oficial. Envío gratis a todo el país.';
+  document.getElementById('wa-number').textContent = '+' + waNumero;
+  document.getElementById('wa-btn-main').href = waUrl;
+  document.getElementById('wa-hours').textContent = t.horario || '';
+  const email = t.email || '';
+  const emailEl = document.getElementById('footer-email');
+  emailEl.href = 'mailto:' + email;
+  emailEl.textContent = email;
+  document.getElementById('footer-copy').textContent = `© ${new Date().getFullYear()} ${t.nombre || 'TecnoResistencia'} · ${t.ubicacion || ''}`;
+}
+
+async function loadCatalog(url) {
+  const loadEl = document.getElementById('loading-state');
+  const errorEl = document.getElementById('error-state');
+  const grid = document.getElementById('products-grid');
+  const bar = document.getElementById('filter-bar');
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    allProducts = data.productos || [];
+    allCategorias = data.categorias || [];
+    populatePage(data);
+    loadEl.style.display = 'none';
+    bar.style.display = 'flex';
+    grid.style.display = 'grid';
+    renderFilters();
+    renderProducts('todos');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  } catch (err) {
+    loadEl.style.display = 'none';
+    errorEl.style.display = 'flex';
+    document.getElementById('error-msg').textContent = err.message;
+    document.getElementById('error-url').textContent = url;
+  }
+}
+
+const params = new URLSearchParams(window.location.search);
+loadCatalog(params.get('json') || DEFAULT_JSON_URL);
+</script>
+</body>
+</html>

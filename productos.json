@@ -1,0 +1,92 @@
+{
+  "tienda": {
+    "nombre": "TecnoResistencia",
+    "slogan": "Todo para tu celular",
+    "descripcion": "Accesorios originales, cargadores, fundas y más. Con envío gratis a todo el país.",
+    "whatsapp": "5493510000000",
+    "email": "info@tecnoresistencia.com",
+    "ubicacion": "Córdoba, Argentina",
+    "horario": "Lun–Sáb 9:00 a 20:00 hs · Dom y feriados 10:00 a 16:00 hs"
+  },
+  "categorias": [
+    { "id": "cargadores",   "nombre": "Cargadores",   "icono": "⚡" },
+    { "id": "fundas",       "nombre": "Fundas",        "icono": "🛡️" },
+    { "id": "auriculares",  "nombre": "Auriculares",   "icono": "🎧" },
+    { "id": "cables",       "nombre": "Cables",        "icono": "🔌" },
+    { "id": "accesorios",   "nombre": "Accesorios",    "icono": "📱" }
+  ],
+  "productos": [
+    {
+      "id": "CAR-001",
+      "nombre": "Cargador Turbo 65W USB-C",
+      "categoria": "cargadores",
+      "icono": "⚡",
+      "descripcion": "Carga tu celular al 100% en menos de 40 minutos. Compatible con todas las marcas.",
+      "precio": "$18.990",
+      "badge": "destacado"
+    },
+    {
+      "id": "CAR-002",
+      "nombre": "Cargador Inalámbrico 15W",
+      "categoria": "cargadores",
+      "icono": "🔋",
+      "descripcion": "Carga rápida sin cables. Compatible con iPhone y Android. Base antideslizante.",
+      "precio": "$24.500",
+      "badge": "nuevo"
+    },
+    {
+      "id": "FUN-010",
+      "nombre": "Funda Antigolpe Premium",
+      "categoria": "fundas",
+      "icono": "🛡️",
+      "descripcion": "Protección militar MIL-STD-810G. Bordes reforzados y lente protegida. Varios modelos.",
+      "precio": "$12.900",
+      "badge": null
+    },
+    {
+      "id": "FUN-011",
+      "nombre": "Funda con MagSafe",
+      "categoria": "fundas",
+      "icono": "🧲",
+      "descripcion": "Compatible con accesorios MagSafe. Material premium, tacto suave, bordes elevados.",
+      "precio": "$15.750",
+      "badge": "nuevo"
+    },
+    {
+      "id": "AUR-020",
+      "nombre": "Auriculares Bluetooth 5.3",
+      "categoria": "auriculares",
+      "icono": "🎧",
+      "descripcion": "Sonido Hi-Fi, cancelación de ruido activa, autonomía 32hs con estuche de carga.",
+      "precio": "$34.990",
+      "badge": "destacado"
+    },
+    {
+      "id": "CAB-030",
+      "nombre": "Cable USB-C 100W 2m",
+      "categoria": "cables",
+      "icono": "🔌",
+      "descripcion": "Trenzado de nylon, carga rápida 100W, transferencia 480Mbps. Duración 10.000+ dobleces.",
+      "precio": "$8.500",
+      "badge": "oferta"
+    },
+    {
+      "id": "ACC-040",
+      "nombre": "Vidrio Templado 9H",
+      "categoria": "accesorios",
+      "icono": "📱",
+      "descripcion": "Ultra delgado 0.3mm, dureza 9H, cobertura total. Compatible con la mayoría de modelos.",
+      "precio": "$6.990",
+      "badge": null
+    },
+    {
+      "id": "ACC-041",
+      "nombre": "Power Bank 20.000mAh",
+      "categoria": "accesorios",
+      "icono": "🔋",
+      "descripcion": "Doble salida USB-C + USB-A. Carga rápida 22.5W. Ideal para viajes y uso diario.",
+      "precio": "$42.990",
+      "badge": "destacado"
+    }
+  ]
+}
