@@ -88,13 +88,13 @@
     },
     {
       "id": "CAB-030",
-      "nombre": "Cable USB-C 100W 2m",
-      "categoria": "cables",
+      "nombre": "Mouse Optico Only",
+      "categoria": "accesorios",
       "icono": "🔌",
-      "imagen": "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&h=500&fit=crop",
-      "descripcion": "Trenzado nylon, carga 100W, 10.000+ dobleces.",
-      "precio": "$8.500",
-      "badge": "oferta"
+      "imagen": "https://github.com/omegawar080-dotcom/tienda/blob/main/fotos/Mouse%20Only.png?raw=true",
+      "descripcion": "✅ Conexión USB Plug & Play (sin necesidad de instalar drivers)\n✅ Diseño compacto y liviano\n✅ Sensor óptico de buena precisión\n✅ Cable resistente para mayor durabilidad\n✅ Compatible con PC y notebooks\n✅ Ideal para trabajo, estudio y uso doméstico",
+      "precio": "$6.000",
+      "badge": "destacado"
     },
     {
       "id": "ACC-040",
@@ -108,7 +108,7 @@
     },
     {
       "id": "ACC-041",
-      "nombre": "Power Bank 20.000mAh",
+      "nombre": "Auricular Only Boton",
       "categoria": "accesorios",
       "icono": "🎧",
       "imagen": "https://github.com/omegawar080-dotcom/tienda/blob/main/fotos/Auricular%20Only%20Boton%20Control.png?raw=true",
