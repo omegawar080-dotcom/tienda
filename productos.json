@@ -38,42 +38,42 @@
   "productos": [
     {
       "id": "CAR-001",
-      "nombre": "Cargador Turbo 65W USB-C 23",
+      "nombre": "Cargador Ecopower",
       "categoria": "cargadores",
       "icono": "⚡",
-      "imagen": "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=500&h=500&fit=crop",
-      "descripcion": "Carga tu celular al 100% en menos de 40 minutos.",
-      "precio": "$18.990",
+      "imagen": "https://github.com/omegawar080-dotcom/tienda/blob/main/fotos/Gemini_Generated_Image_be3o8ebe3o8ebe3o21.png?raw=true",
+      "descripcion": "📌 Carga Rápida.\n📌 Salida: 5V/2.1a.\n📌 Compatible TipoC.📌Voltage 100-240V",
+      "precio": "5000",
       "badge": "destacado"
     },
     {
       "id": "CAR-002",
-      "nombre": "Cargador Inalámbrico 15W",
+      "nombre": "CargadorMicroUsb lets 2.1 v8",
       "categoria": "cargadores",
       "icono": "🔋",
-      "imagen": "https://images.unsplash.com/photo-1606841839951-c6227ccb2f13?w=500&h=500&fit=crop",
-      "descripcion": "Carga rápida sin cables. Base antideslizante.",
+      "imagen": "https://github.com/omegawar080-dotcom/tienda/blob/main/fotos/Cargador%20Lets%20Micro%20Usb.png?raw=true",
+      "descripcion": "📌1 usb+cable",
       "precio": "$24.500",
       "badge": "nuevo"
     },
     {
       "id": "FUN-010",
-      "nombre": "Funda Antigolpe Premium",
-      "categoria": "fundas",
+      "nombre": "Cable Iphone Sook Lightning",
+      "categoria": "cables",
       "icono": "🛡️",
-      "imagen": "https://images.unsplash.com/photo-1592286927505-1def25115558?w=500&h=500&fit=crop",
-      "descripcion": "Protección MIL-STD-810G. Bordes y lente protegidos.",
-      "precio": "$12.900",
-      "badge": null
+      "imagen": "https://github.com/omegawar080-dotcom/tienda/blob/main/fotos/Cable%20Iphone%20Sook.png?raw=true",
+      "descripcion": "🔌 Conector Lightning: Compatible con dispositivos Apple\n\n ⚡Carga rápida + transferencia de datos\n\n📏 Largo ideal de 1 metro\n\n🧵 Cable reforzado: Recubrimiento flexible, resistente a tirones y enredos",
+      "precio": "5000",
+      "badge": "destacado"
     },
     {
       "id": "FUN-011",
-      "nombre": "Funda con MagSafe",
-      "categoria": "fundas",
+      "nombre": "Cavle Hera Tipo C a Usb",
+      "categoria": "cables",
       "icono": "🧲",
-      "imagen": "https://images.unsplash.com/photo-1606966248051-5ce98ae0f6d5?w=500&h=500&fit=crop",
-      "descripcion": "Compatible con MagSafe. Material premium, tacto suave.",
-      "precio": "$15.750",
+      "imagen": "https://github.com/omegawar080-dotcom/tienda/blob/main/fotos/Cable%20Carga%20Rapida%20Usb%20a%20Tipo%20C.png?raw=true",
+      "descripcion": "📌Tipo C a Tipo C, ideal para dispositivos Android, laptops y accesorios modernos.📌USB a Tipo C 📌 Amperaje 3A 📌Largo de cable 1.5 metros v",
+      "precio": "5000",
       "badge": "nuevo"
     },
     {
@@ -98,22 +98,22 @@
     },
     {
       "id": "ACC-040",
-      "nombre": "Vidrio Templado 9H",
-      "categoria": "accesorios",
-      "icono": "📱",
-      "imagen": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=500&h=500&fit=crop",
-      "descripcion": "Ultra delgado 0.3mm, dureza 9H, cobertura total.",
-      "precio": "$6.990",
-      "badge": null
+      "nombre": "Auricular Con Microfono Only Explosion",
+      "categoria": "auriculares",
+      "icono": "🎧",
+      "imagen": "https://github.com/omegawar080-dotcom/tienda/blob/main/fotos/Auricular%20Cable%20Only%20Explosion.webp?raw=true",
+      "descripcion": "📌MICROFONO: SI\n📌CONEXIÓN 📌CABLE\nCONECTIVIDAD ENT 3.5MM\n📌LONGITUD DE CABLE: 0,90M",
+      "precio": "$5.000",
+      "badge": "destacado"
     },
     {
       "id": "ACC-041",
       "nombre": "Power Bank 20.000mAh",
       "categoria": "accesorios",
-      "icono": "🔋",
-      "imagen": "https://images.unsplash.com/photo-1609617807866-e0ead017a4cd?w=500&h=500&fit=crop",
-      "descripcion": "USB-C + USB-A, carga rápida 22.5W. Ideal para viajes.",
-      "precio": "$42.990",
+      "icono": "🎧",
+      "imagen": "https://github.com/omegawar080-dotcom/tienda/blob/main/fotos/Auricular%20Only%20Boton%20Control.png?raw=true",
+      "descripcion": "📌 Botón multifunción: Atiende y corta llamadas fácilmente con un solo toque📌Micrófono incorporado: Perfecto para hablar con claridad mientras mantienes las manos libres📌Cable de 1 metro: Longitud ideal para moverte con libertad sin enredos.",
+      "precio": "$5.000",
       "badge": "destacado"
     }
   ]
