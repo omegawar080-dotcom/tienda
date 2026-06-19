@@ -38,7 +38,7 @@
   "productos": [
     {
       "id": "CAR-001",
-      "nombre": "Cargador Turbo 65W USB-C",
+      "nombre": "Cargador Turbo 65W USB-C 23",
       "categoria": "cargadores",
       "icono": "⚡",
       "imagen": "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=500&h=500&fit=crop",
@@ -78,13 +78,13 @@
     },
     {
       "id": "AUR-020",
-      "nombre": "Auriculares Bluetooth 5.3",
+      "nombre": "Auriculares Con Cable",
       "categoria": "auriculares",
       "icono": "🎧",
-      "imagen": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop",
-      "descripcion": "Sonido Hi-Fi, cancelación de ruido, 32hs de autonomía.",
-      "precio": "$34.990",
-      "badge": "destacado"
+      "imagen": "https://raw.githubusercontent.com/omegawar080-dotcom/tienda/refs/heads/main/fotos/Auricular%20Cable%20Bolsita.png",
+      "descripcion": "Micrófono: Sí\nRecibir llamadas: Sí\nConector de auriculares 3.5mm\nSonido fuerte y claro",
+      "precio": "$3.500",
+      "badge": "oferta"
     },
     {
       "id": "CAB-030",
